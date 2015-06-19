@@ -106,6 +106,7 @@ post "/markov" do
     end
   rescue => e
     puts "[ERROR] #{e}"
+    puts e.backtrace.join("\n")
     response = ""
   end
   
