@@ -74,7 +74,7 @@ post "/markov" do
     # Ignore if text is a cfbot command, or a bot response, or the outgoing integration token doesn't match
     unless params[:text].nil? ||
            params[:text].match(settings.ignore_regex) ||
-           params[:user_name].match(settings.ignore_regex) ||
+           params[:user_name] && params[:user_name].match(settings.ignore_regex) ||
            params[:user_id] == "USLACKBOT" ||
            params[:user_id] == "" ||
            params[:token] != ENV["OUTGOING_WEBHOOK_TOKEN"]
