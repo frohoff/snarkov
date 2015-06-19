@@ -104,7 +104,7 @@ post "/markov" do
         tweet(reply) unless ENV["SEND_TWEETS"].nil? || ENV["SEND_TWEETS"].downcase == "false"
       end
     end
-  rescue
+  rescue => e
     puts "[ERROR] #{e}"
     response = ""
   end
